@@ -35,21 +35,8 @@ kotlin {
   android()
   jvm()
   js {
-    binaries.library()
     useCommonJs()
     nodejs()
-    //          browser {
-    //            commonWebpackConfig {
-    //              cssSupport.enabled = true
-    //            }
-    //            testTask {
-    //              useKarma {
-    //                useFirefox()
-    //                useChrome()
-    //                useSafari()
-    //              }
-    //            }
-    //          }
   }
 
   nativeTargetGroup(

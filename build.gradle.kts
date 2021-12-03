@@ -3,8 +3,12 @@ plugins {
     id("plugin.git-hooks")
   }
   id("plugin.library-mpp")
-  id("plugin.publishing-nexus")
-  id("plugin.publishing-mpp")
+}
+
+idea {
+  module {
+     excludeDirs.add(projectDir.resolve("src/commonTest/kotlin/input"))
+  }
 }
 
 gradleEnterprise {
@@ -14,10 +18,4 @@ gradleEnterprise {
   }
 }
 
-kotlin {
-  sourceSets {
-    commonMain {
-      dependencies { subprojects.filter { it.path.startsWith(":lib:") }.forEach { api(it) } }
-    }
-  }
-}
+kotlin { sourceSets { commonTest { dependencies { implementation(project(":test")) } } } }

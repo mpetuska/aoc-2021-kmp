@@ -1,10 +1,8 @@
 plugins {
   id("de.fayard.refreshVersions") version "0.23.0"
-  id("com.gradle.enterprise") version "3.7.1"
+  id("com.gradle.enterprise") version "3.7.2"
 }
 
-rootProject.name = "template-kmp-library"
+rootProject.name = "aoc-2021"
 
 include(":test")
-
-include(":lib:template-kmp-library-core", ":lib:template-kmp-library-dsl")

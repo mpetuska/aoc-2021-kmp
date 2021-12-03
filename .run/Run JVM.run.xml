@@ -13,7 +13,7 @@
           <option value="cleanJvmTest" />
           <option value="jvmTest" />
           <option value="--tests" />
-          <option value="&quot;dev.petuska.aoc2021.Day1Part1&quot;" />
+          <option value="&quot;dev.petuska.aoc2021.Day2Part1&quot;" />
         </list>
       </option>
       <option name="vmOptions" />

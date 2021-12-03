@@ -1,7 +1,7 @@
 package dev.petuska.aoc2021
 
-import dev.petuska.aoc2021.engine.Day
-import dev.petuska.aoc2021.engine.day1Inputs
+import dev.petuska.aoc2021.engine.HalfDay
+import dev.petuska.aoc2021.engine.day1Inputs1
 
 /**
  * --- Day 1: Sonar Sweep ---
@@ -59,9 +59,8 @@ import dev.petuska.aoc2021.engine.day1Inputs
  *
  * [Web version](https://adventofcode.com/2021/day/1)
  */
-object Day1 : Day() {
-  override val solution =
-      Solution(day1Inputs) { measurements: List<Int> ->
-      
-      }
+object Day1Part1 : HalfDay<List<Int>, Int>(day1Inputs1) {
+  override fun solution(measurements: List<Int>): Int {
+    return TODO()
+  }
 }

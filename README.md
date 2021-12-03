@@ -3,7 +3,7 @@
 ## Structure
 
 Each day comes with two parts for you to solve. You'll find a ready-to go and test templates to start coding straight
-away here. All exercises live in [./src/commonTest](./src/commonTest) directory and come with prepopulated structure and
+away here. All exercises live in [./src/commonTest/kotlin](./src/commonTest/kotlin) directory and come with prepopulated structure and
 test cases.
 
 ## Solving

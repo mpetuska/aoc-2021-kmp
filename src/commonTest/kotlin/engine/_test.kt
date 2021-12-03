@@ -22,8 +22,8 @@ abstract class HalfDay<I, O>(private val testCases: Map<I, O>) {
             .filterIndexed { i, result ->
               if (result.isSuccess) {
                 val duration =
-                    result.getOrNull()?.let {
-                      "${it.inWholeSeconds}s ${it.inWholeMilliseconds}ms ${it.inWholeMicroseconds}us"
+                    result.getOrNull()?.toComponents { seconds, nanoseconds ->
+                      "${seconds}s ${nanoseconds / 1_000_000}ms ${nanoseconds % 1_000_000}ns"
                     }
                 println("SUCCESS [${this::class.simpleName} #$i] $duration")
               } else {

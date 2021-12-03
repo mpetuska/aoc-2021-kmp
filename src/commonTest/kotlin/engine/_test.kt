@@ -29,6 +29,7 @@ abstract class HalfDay<I, O>(private val testCases: Map<I, O>) {
               } else {
                 println(
                     "FAILURE [${this::class.simpleName} #$i] ${result.exceptionOrNull()?.message}")
+                result.exceptionOrNull()?.printStackTrace()
               }
               result.isFailure
             }

@@ -20,3 +20,8 @@ implementation performs under different runtimes by their execution time printed
 SUCCESS [Day2 #0] 0s 5ms 5912us
 FAILURE [Day2 #1] Answer [****] is incorrect
 ```
+
+## Branching
+The repository comes with two git branches
+* `unsolved` (default) - only the tasks with the test framework and hidden test inputs. No solutions or spoilers
+* `solved` - same code, but with solutions filled in for each task

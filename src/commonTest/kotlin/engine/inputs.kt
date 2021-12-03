@@ -13,3 +13,4 @@ val day2Inputs1: Map<List<Day2Part1.Command>, Int> = day2InputsRaw.zip(listOf(15
 val day2Inputs2: Map<List<Day2Part1.Command>, Int> = day2InputsRaw.zip(listOf(900, 2138382217)).toMap()
 
 val day3Inputs1: Map<List<List<Int>>, Int> = dev.petuska.aoc2021.input.day3.zip(listOf(198, 3959450)).toMap()
+val day3Inputs2: Map<List<List<Int>>, Int> = dev.petuska.aoc2021.input.day3.zip(listOf(230, 7440311)).toMap()

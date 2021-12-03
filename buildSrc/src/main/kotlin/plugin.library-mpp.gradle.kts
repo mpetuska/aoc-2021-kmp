@@ -9,9 +9,7 @@ import util.nativeTargetGroup
 
 plugins {
   kotlin("multiplatform")
-  kotlin("plugin.serialization")
   id("plugin.common")
-  id("dev.petuska.klip")
   id("com.android.library")
 }
 
@@ -26,7 +24,12 @@ android {
 kotlin {
   sourceSets {
     val commonMain by getting
-    val commonTest by getting { dependencies { implementation(project(":test")) } }
+    val commonTest by getting {
+      dependencies {
+        implementation(kotlin("test"))
+        implementation(kotlin("test-annotations-common"))
+      }
+    }
     create("nativeMain") { dependsOn(commonMain) }
     create("nativeTest") { dependsOn(commonTest) }
   }

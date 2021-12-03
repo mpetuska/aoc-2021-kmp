@@ -17,5 +17,3 @@ gradleEnterprise {
     termsOfServiceAgree = "yes"
   }
 }
-
-kotlin { sourceSets { commonTest { dependencies { implementation(project(":test")) } } } }

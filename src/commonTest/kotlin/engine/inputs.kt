@@ -10,5 +10,6 @@ private val day2InputsRaw =
       it.map { (c, s) -> Day2Part1.Command(Day2Part1.Command.Direction.valueOf(c), s) }
     }
 val day2Inputs1: Map<List<Day2Part1.Command>, Int> = day2InputsRaw.zip(listOf(150, 2120749)).toMap()
-
 val day2Inputs2: Map<List<Day2Part1.Command>, Int> = day2InputsRaw.zip(listOf(900, 2138382217)).toMap()
+
+val day3Inputs1: Map<List<List<Int>>, Int> = dev.petuska.aoc2021.input.day3.zip(listOf(198, 3959450)).toMap()

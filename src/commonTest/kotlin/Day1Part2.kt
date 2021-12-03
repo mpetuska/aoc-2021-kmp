@@ -48,6 +48,15 @@ import dev.petuska.aoc2021.engine.day1Inputs2
  */
 object Day1Part2 : HalfDay<List<Int>, Int>(day1Inputs2) {
   override fun solution(measurements: List<Int>): Int {
-    return TODO()
+    return measurements
+      .windowed(3)
+      .windowed(2) {
+        if (it[0].sum() < it[1].sum()) {
+          1
+        } else {
+          0
+        }
+      }
+      .sum()
   }
 }

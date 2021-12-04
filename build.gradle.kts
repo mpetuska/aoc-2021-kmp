@@ -5,11 +5,7 @@ plugins {
   id("plugin.library-mpp")
 }
 
-idea {
-  module {
-     excludeDirs.add(projectDir.resolve("src/commonTest/kotlin/input"))
-  }
-}
+idea { module { excludeDirs.add(projectDir.resolve("src/commonTest/kotlin/input")) } }
 
 gradleEnterprise {
   buildScan {
@@ -17,3 +13,5 @@ gradleEnterprise {
     termsOfServiceAgree = "yes"
   }
 }
+
+kotlin { sourceSets { commonTest { kotlin.srcDir(rootDir.resolve("tasks")) } } }

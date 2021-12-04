@@ -5,7 +5,7 @@ import kotlin.math.abs
 /** [The Task](https://adventofcode.com/2021/day/3) */
 object Day3 : Day<Int>(day3Input) {
   override fun partOne(inputLines: List<String>): Int {
-    val reportRows = inputLines.map { it.split("").map(String::toInt) }
+    val reportRows = inputLines.map { it.split("").mapNotNull(String::toIntOrNull) }
 
     val width = reportRows.first().size
     val commonalityIndex = MutableList(width) { Pair(0, 0) }
@@ -30,7 +30,7 @@ object Day3 : Day<Int>(day3Input) {
   }
 
   override fun partTwo(inputLines: List<String>): Int {
-    val reportRows = inputLines.map { it.split("").map(String::toInt) }
+    val reportRows = inputLines.map { it.split("").mapNotNull(String::toIntOrNull) }
 
     val co2 = reportRows.reduceToSingle { zeros, ones -> if (zeros <= ones) 0 else 1 }
     val o2 = reportRows.reduceToSingle { zeros, ones -> if (zeros <= ones) 1 else 0 }

@@ -19,11 +19,11 @@ val day2Input: DataProvider<Int> =
     dayInput(
         2,
         listOf(
-            Output(partOne = 150, partTwo = 2120749), Output(partOne = 900, partTwo = 2138382217)))
+            Output(partOne = 150, partTwo = 900), Output(partOne = 2120749, partTwo = 2138382217)))
 val day3Input: DataProvider<Int> =
     dayInput(
         3,
-        listOf(Output(partOne = 198, partTwo = 3959450), Output(partOne = 230, partTwo = 7440311)))
+        listOf(Output(partOne = 198, partTwo = 230), Output(partOne = 3959450, partTwo = 7440311)))
 val day4Input: DataProvider<Int> =
     dayInput(
         4,

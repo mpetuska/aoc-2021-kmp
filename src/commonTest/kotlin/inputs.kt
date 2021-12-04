@@ -28,8 +28,8 @@ val day4Input: DataProvider<Int> =
     dayInput(
         4,
         listOf(
-            Output(partOne = 4512, partTwo = UNSOLVED),
-            Output(partOne = UNSOLVED, partTwo = UNSOLVED)))
+            Output(partOne = 4512, partTwo = 1924),
+            Output(partOne = 5685, partTwo = 21070)))
 val day5Input: DataProvider<Int> =
     dayInput(
         5,

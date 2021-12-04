@@ -32,40 +32,41 @@ abstract class Day<O>(inputsProvider: DataProvider<O>) {
   @OptIn(ExperimentalTime::class)
   private fun runTests(solution: (List<String>) -> O, isPartOne: Boolean) {
     val part = if (isPartOne) "One" else "Two"
-    val idStr = { index: Int -> "${this::class.simpleName}:Part$part #$index" }
     val failures =
         inputs
             .mapIndexed { i, input ->
-              val id = idStr(i + 1)
               runCatching {
                 val inputLines = loadSample(day, input.id)
                 var answer: O
-                measureTime { answer = solution(inputLines) }.also {
-                  val output =
-                      if (isPartOne) {
-                        input.part1Output
-                      } else {
-                        input.part2Output
-                      }
-                  if (output != answer) error("ERROR [$id] Answer [$answer] is incorrect")
-                }
+                val output =
+                    if (isPartOne) {
+                      input.part1Output
+                    } else {
+                      input.part2Output
+                    }
+                Triple(measureTime { answer = solution(inputLines) }, answer, answer == output)
               }
             }
             .filterIndexed { i, result ->
-              val id = idStr(i + 1)
+              val id = "${this::class.simpleName}:Part$part #${i + 1}"
               if (result.isSuccess) {
+                val (time, answer, success) = result.getOrThrow()
                 val duration =
-                    result.getOrNull()?.toComponents { seconds, nanoseconds ->
+                    time.toComponents { seconds, nanoseconds ->
                       "${seconds}s ${nanoseconds / 1_000_000}ms ${nanoseconds % 1_000_000}ns"
                     }
-                println("SUCCESS [$id] $duration")
+                if (success) {
+                  println("SUCCESS [$id] $duration - Answer [$answer] is correct")
+                } else {
+                  println("FAILURE [$id] $duration - Answer [$answer] is incorrect")
+                }
               } else {
-                println("FAILURE [$id] ${result.exceptionOrNull()?.message}")
+                println("ERROR [$id] ${result.exceptionOrNull()?.message}")
+                result.exceptionOrNull()?.printStackTrace()
               }
-              result.isFailure
+              result.getOrNull()?.third ?: result.isFailure
             }
 
-    failures.forEach { it.exceptionOrNull()?.printStackTrace() }
     assertEquals(0, failures.size, "Failing test cases")
   }
 }

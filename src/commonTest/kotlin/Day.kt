@@ -47,7 +47,7 @@ abstract class Day<O>(inputsProvider: DataProvider<O>) {
                       } else {
                         input.part2Output
                       }
-                  if (output != answer) error("ERROR [$id)] Answer [$answer] is incorrect")
+                  if (output != answer) error("ERROR [$id] Answer [$answer] is incorrect")
                 }
               }
             }

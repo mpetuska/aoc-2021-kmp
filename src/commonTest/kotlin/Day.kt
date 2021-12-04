@@ -65,6 +65,7 @@ abstract class Day<O>(inputsProvider: DataProvider<O>) {
               result.isFailure
             }
 
+    failures.forEach { it.exceptionOrNull()?.printStackTrace() }
     assertEquals(0, failures.size, "Failing test cases")
   }
 }

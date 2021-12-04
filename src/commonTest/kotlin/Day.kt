@@ -61,11 +61,11 @@ abstract class Day<O>(inputsProvider: DataProvider<O>) {
                 println("SUCCESS [$id] $duration")
               } else {
                 println("FAILURE [$id] ${result.exceptionOrNull()?.message}")
-                result.exceptionOrNull()?.printStackTrace()
               }
               result.isFailure
             }
 
+    failures.forEach { it.exceptionOrNull()?.printStackTrace() }
     assertEquals(0, failures.size, "Failing test cases")
   }
 }

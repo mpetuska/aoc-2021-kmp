@@ -11,6 +11,7 @@ plugins {
   kotlin("multiplatform")
   id("plugin.common")
   id("com.android.library")
+  id("dev.petuska.klip")
 }
 
 android {
@@ -22,26 +23,29 @@ android {
 }
 
 kotlin {
-  sourceSets {
-    val commonMain by getting
-    val commonTest by getting {
-      dependencies {
-        implementation(kotlin("test"))
-        implementation(kotlin("test-annotations-common"))
-      }
-    }
-    create("nativeMain") { dependsOn(commonMain) }
-    create("nativeTest") { dependsOn(commonTest) }
-  }
-
-  explicitApi()
   android()
   jvm()
   js {
     useCommonJs()
     nodejs()
   }
-
+  
+  sourceSets {
+    val commonMain by getting
+    val commonTest by getting {
+      dependencies {
+        implementation(kotlin("test"))
+        implementation(kotlin("test-annotations-common"))
+        implementation("dev.petuska:klip:_")
+      }
+    }
+    create("nativeMain") { dependsOn(commonMain) }
+    create("nativeTest") { dependsOn(commonTest) }
+//    named("jvmTest") { dependencies { implementation(kotlin("test-junit5")) } }
+//    named("androidTest") { dependencies { implementation(kotlin("test-junit5")) } }
+//    named("jsTest") { dependencies { implementation(kotlin("test-js")) } }
+  }
+  
   nativeTargetGroup(
       "androidNdk",
       androidNativeArm32(),

@@ -13,7 +13,7 @@
           <option value="cleanJvmTest" />
           <option value="jvmTest" />
           <option value="--tests" />
-          <option value="&quot;Day3&quot;" />
+          <option value="&quot;Day4.part2&quot;" />
         </list>
       </option>
       <option name="vmOptions" />

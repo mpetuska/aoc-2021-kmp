@@ -30,3 +30,129 @@ val day4Input: DataProvider<Int> =
         listOf(
             Output(partOne = 4512, partTwo = UNSOLVED),
             Output(partOne = UNSOLVED, partTwo = UNSOLVED)))
+val day5Input: DataProvider<Int> =
+    dayInput(
+        5,
+        listOf(
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED),
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED)))
+val day6Input: DataProvider<Int> =
+    dayInput(
+        6,
+        listOf(
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED),
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED)))
+val day7Input: DataProvider<Int> =
+    dayInput(
+        7,
+        listOf(
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED),
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED)))
+val day8Input: DataProvider<Int> =
+    dayInput(
+        8,
+        listOf(
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED),
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED)))
+val day9Input: DataProvider<Int> =
+    dayInput(
+        9,
+        listOf(
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED),
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED)))
+val day10Input: DataProvider<Int> =
+    dayInput(
+        10,
+        listOf(
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED),
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED)))
+val day11Input: DataProvider<Int> =
+    dayInput(
+        11,
+        listOf(
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED),
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED)))
+val day12Input: DataProvider<Int> =
+    dayInput(
+        12,
+        listOf(
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED),
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED)))
+val day13Input: DataProvider<Int> =
+    dayInput(
+        13,
+        listOf(
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED),
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED)))
+val day14Input: DataProvider<Int> =
+    dayInput(
+        14,
+        listOf(
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED),
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED)))
+val day15Input: DataProvider<Int> =
+    dayInput(
+        15,
+        listOf(
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED),
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED)))
+val day16Input: DataProvider<Int> =
+    dayInput(
+        16,
+        listOf(
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED),
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED)))
+val day17Input: DataProvider<Int> =
+    dayInput(
+        17,
+        listOf(
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED),
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED)))
+val day18Input: DataProvider<Int> =
+    dayInput(
+        18,
+        listOf(
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED),
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED)))
+val day19Input: DataProvider<Int> =
+    dayInput(
+        19,
+        listOf(
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED),
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED)))
+val day20Input: DataProvider<Int> =
+    dayInput(
+        20,
+        listOf(
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED),
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED)))
+val day21Input: DataProvider<Int> =
+    dayInput(
+        21,
+        listOf(
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED),
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED)))
+val day22Input: DataProvider<Int> =
+    dayInput(
+        22,
+        listOf(
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED),
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED)))
+val day23Input: DataProvider<Int> =
+    dayInput(
+        23,
+        listOf(
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED),
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED)))
+val day24Input: DataProvider<Int> =
+    dayInput(
+        24,
+        listOf(
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED),
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED)))
+val day25Input: DataProvider<Int> =
+    dayInput(
+        25,
+        listOf(
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED),
+            Output(partOne = UNSOLVED, partTwo = UNSOLVED)))

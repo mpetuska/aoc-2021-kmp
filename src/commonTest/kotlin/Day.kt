@@ -32,7 +32,7 @@ abstract class Day<O>(inputsProvider: DataProvider<O>) {
   @OptIn(ExperimentalTime::class)
   private fun runTests(solution: (List<String>) -> O, isPartOne: Boolean) {
     val part = if (isPartOne) "One" else "Two"
-    val idStr = { index: Int -> "${this::class.simpleName}:Part$part #$index" }
+    val idStr = { id: Int -> "${this::class.simpleName}:Part$part #$id" }
     val failures =
         inputs
             .mapIndexed { i, input ->
@@ -47,7 +47,7 @@ abstract class Day<O>(inputsProvider: DataProvider<O>) {
                       } else {
                         input.part2Output
                       }
-                  if (output != answer) error("ERROR [$id)] Answer [$answer] is incorrect")
+                  if (output != answer) error("ERROR [$id] Answer [$answer] is incorrect")
                 }
               }
             }
@@ -61,7 +61,6 @@ abstract class Day<O>(inputsProvider: DataProvider<O>) {
                 println("SUCCESS [$id] $duration")
               } else {
                 println("FAILURE [$id] ${result.exceptionOrNull()?.message}")
-                result.exceptionOrNull()?.printStackTrace()
               }
               result.isFailure
             }

@@ -29,22 +29,23 @@ kotlin {
     useCommonJs()
     nodejs()
   }
-
+  
   sourceSets {
-    val commonMain by getting {
+    val commonMain by getting
+    val commonTest by getting {
       dependencies {
         implementation(kotlin("test"))
         implementation(kotlin("test-annotations-common"))
         implementation("dev.petuska:klip:_")
       }
     }
-    val commonTest by getting
     create("nativeMain") { dependsOn(commonMain) }
     create("nativeTest") { dependsOn(commonTest) }
-    named("jvmMain") { dependencies { implementation(kotlin("test-junit5")) } }
-    named("jsMain") { dependencies { implementation(kotlin("test-js")) } }
+//    named("jvmTest") { dependencies { implementation(kotlin("test-junit5")) } }
+//    named("androidTest") { dependencies { implementation(kotlin("test-junit5")) } }
+//    named("jsTest") { dependencies { implementation(kotlin("test-js")) } }
   }
-
+  
   nativeTargetGroup(
       "androidNdk",
       androidNativeArm32(),

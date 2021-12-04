@@ -12,8 +12,7 @@ import dev.petuska.klip.core.validate
 fun loadSample(day: Int, input: Int, _context: KlipContext? = null): List<String> {
   _context.validate()
   var file: File? = File(_context.path)
-  while (file?.getPath()?.endsWith("commonMain") == false) {
-    println(file.getPath())
+  while (file?.getPath()?.endsWith("commonTest") == false) {
     file = file.getParentFile()
   }
   val inputPath = "/resources/day$day/input$input.txt"

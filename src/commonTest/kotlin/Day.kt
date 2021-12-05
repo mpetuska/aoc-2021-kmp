@@ -56,13 +56,20 @@ abstract class Day<O>(inputsProvider: DataProvider<O>) {
                       "${seconds}s ${nanoseconds / 1_000_000}ms ${nanoseconds % 1_000_000}ns"
                     }
                 if (success) {
-                  println("SUCCESS [$id] $duration - Answer [$answer] is correct")
+                  println(AnsiColor.Green, "SUCCESS [$id] $duration - Answer [$answer] is correct")
                 } else {
-                  println("FAILURE [$id] $duration - Answer [$answer] is incorrect")
+                  println(
+                      AnsiColor.Orange, "FAILURE [$id] $duration - Answer [$answer] is incorrect")
                 }
               } else {
-                println("ERROR [$id] ${result.exceptionOrNull()?.message}")
-                result.exceptionOrNull()?.printStackTrace()
+                val exception = result.exceptionOrNull()
+                if (exception is NotImplementedError) {
+                  println(AnsiColor.Blue, "INFO [$id] ${exception.message}")
+                  return@filterIndexed false
+                } else {
+                  println(AnsiColor.Red, "ERROR [$id] $exception")
+                  exception?.printStackTrace()
+                }
               }
               result.getOrNull()?.third ?: result.isFailure
             }

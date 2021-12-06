@@ -2,9 +2,6 @@ package dev.petuska.aoc.engine
 
 import dev.petuska.klip.core.Klippable
 import dev.petuska.klip.core.ext.File
-import dev.petuska.klip.core.ext.newline
-import dev.petuska.klip.core.ext.readText
-import dev.petuska.klip.core.ext.separator
 import dev.petuska.klip.core.int.KlipContext
 import dev.petuska.klip.core.validate
 import kotlin.test.Test
@@ -12,33 +9,10 @@ import kotlin.test.assertEquals
 import kotlin.time.ExperimentalTime
 import kotlin.time.measureTime
 
-data class Input<O>(val id: Int, val part1Output: O?, val part2Output: O?)
 
-typealias Data<O> = Pair<Int, List<Input<O>>>
-
-typealias DataProvider<O> = () -> Data<O>
-
-abstract class Day<O>(inputsProvider: DataProvider<O>) {
-  private val data: Data<O> by lazy(inputsProvider)
-  private val day: Int by lazy { data.first }
-  private val inputs: List<Input<O>> by lazy { data.second }
-  
-  abstract fun partOne(inputLines: List<String>): O
-  abstract fun partTwo(inputLines: List<String>): O
-  
-  @Klippable
-  private fun loadTestSample(day: Int, input: Int, _context: KlipContext? = null): List<String> {
-    _context.validate()
-    var file: File? = File(_context.path)
-    while (file?.getPath()?.endsWith("engine") == false) {
-      file = file.getParentFile()
-    }
-    val inputPath = "/inputs/day$day/input$input.txt"
-    val inputFilePath = file?.getParentFile()?.getPath()?.let { it + inputPath.replace("/", file.separator) }
-    val inputFile = inputFilePath?.let(::File)?.takeIf(File::exists)
-    return inputFile?.readText()?.split(inputFile.newline)?.filterNot(String::isBlank)
-      ?: error("Input file [day=$day, input=$input, path=$inputFilePath] not found")
-  }
+abstract class Day(private val day: Int, private val inputCount: Int = 2) {
+  abstract fun partOne(inputLines: List<String>): Int
+  abstract fun partTwo(inputLines: List<String>): Int
   
   @Test
   fun part1() {
@@ -50,14 +24,28 @@ abstract class Day<O>(inputsProvider: DataProvider<O>) {
     runTests(::partTwo, false)
   }
   
+  @Klippable
+  private fun loadTestData(day: Int, id: Int, _context: KlipContext? = null): DataLoader.Data {
+    _context.validate()
+    var file: File? = File(_context.path)
+    while (file?.getPath()?.endsWith("engine") == false) {
+      file = file.getParentFile()
+    }
+    return file?.getParentFile()?.let(::DataLoader)?.loadData(day, id) ?: error("Input directory [day=$day] not found")
+  }
+  
   @OptIn(ExperimentalTime::class)
-  private fun test(id: String, solution: (List<String>) -> O, input: List<String>, output: O?) {
-    var result: Result<O>
-    val duration = measureTime {
+  private fun test(id: String, solution: (List<String>) -> Int, input: List<String>, output: Int?) {
+    var result: Result<Int>
+    val time = measureTime {
       result = runCatching {
         solution(input)
       }
     }
+    val duration =
+      time.toComponents { seconds, nanoseconds ->
+        "${seconds}s ${nanoseconds / 1_000_000}ms ${nanoseconds % 1_000_000}ns"
+      }
     result.onSuccess { answer ->
       when (output) {
         null -> println(AnsiColor.Blue, "INFO [$id] $duration - Answer [$answer]")
@@ -76,26 +64,24 @@ abstract class Day<O>(inputsProvider: DataProvider<O>) {
   }
   
   @OptIn(ExperimentalTime::class)
-  private fun runTests(solution: (List<String>) -> O, isPartOne: Boolean) {
+  private fun runTests(solution: (List<String>) -> Int, isPartOne: Boolean) {
     val part = if (isPartOne) "One" else "Two"
-    val failures =
-      inputs
-        .mapIndexed { i, input ->
-          val id = "${this::class.simpleName}:Part$part #${i + 1}"
-          runCatching {
-            val inputLines = loadTestSample(day, input.id)
-            val output =
-              if (isPartOne) {
-                input.part1Output
-              } else {
-                input.part2Output
-              }
-            test(id, solution, inputLines, output)
+    val failures = List(inputCount) { it + 1 }.map { inputId ->
+      val id = "${this::class.simpleName}:Part$part #$inputId"
+      runCatching {
+        val data = loadTestData(day, inputId)
+        val output =
+          if (isPartOne) {
+            data.part1Output
+          } else {
+            data.part2Output
           }
-        }
-        .mapNotNull { result ->
-          result.exceptionOrNull()
-        }
+        test(id, solution, data.input, output)
+      }
+    }
+      .mapNotNull { result ->
+        result.exceptionOrNull()
+      }
     failures.forEach(Throwable::printStackTrace)
     
     assertEquals(0, failures.size, "Failing test cases")

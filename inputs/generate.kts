@@ -1,4 +1,4 @@
-#!/usr/bin/env -S kotlin --script
+#!/usr/bin/env -S kotlinc -script
 import java.io.File
 
 repeat(25) { i ->

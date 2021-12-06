@@ -1,8 +1,8 @@
 import dev.petuska.aoc.engine.Day
-import dev.petuska.aoc.engine.day8Input
+
 
 /** [The Task](https://adventofcode.com/2021/day/8) */
-object Day8 : Day<Int>(day8Input) {
+object Day8 : Day(8) {
   override fun partOne(inputLines: List<String>): Int {
     TODO("Unsolved")
   }

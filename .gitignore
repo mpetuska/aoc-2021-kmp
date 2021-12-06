@@ -8,5 +8,5 @@ local.properties
 lint.xml
 *.hprof
 *.log
-#*.in
-#*.out
+*.in
+*.out

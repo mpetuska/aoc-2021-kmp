@@ -1,5 +1,5 @@
-import dev.petuska.aoc2021.engine.Day
-import dev.petuska.aoc2021.engine.day15Input
+import dev.petuska.aoc.engine.Day
+import dev.petuska.aoc.engine.day15Input
 
 /** [The Task](https://adventofcode.com/2021/day/15) */
 object Day15 : Day<Int>(day15Input) {

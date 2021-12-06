@@ -2,7 +2,7 @@ plugins {
   if (System.getenv("CI") == null) {
     id("plugin.git-hooks")
   }
-  id("plugin.library-mpp")
+  id("plugin.tasks")
 }
 
 gradleEnterprise {
@@ -11,5 +11,3 @@ gradleEnterprise {
     termsOfServiceAgree = "yes"
   }
 }
-
-kotlin { sourceSets { commonTest { kotlin.srcDir(rootDir.resolve("tasks")) } } }

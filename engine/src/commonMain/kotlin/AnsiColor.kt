@@ -1,4 +1,4 @@
-package dev.petuska.aoc2021.engine
+package dev.petuska.aoc.engine
 
 import kotlin.jvm.JvmInline
 

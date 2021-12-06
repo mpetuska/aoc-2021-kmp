@@ -1,5 +1,5 @@
-import dev.petuska.aoc2021.engine.Day
-import dev.petuska.aoc2021.engine.day4Input
+import dev.petuska.aoc.engine.Day
+
 
 private typealias Coordinates = Pair<Int, Int>
 
@@ -10,7 +10,7 @@ private typealias Line = List<Value>
 private typealias Board = List<Line>
 
 /** [The Task](https://adventofcode.com/2021/day/4) */
-object Day4 : Day<Int>(day4Input) {
+object Day4 : Day(4) {
   override fun partOne(inputLines: List<String>): Int {
     val (draws, boards) = parseInput(inputLines)
     val boardIndexes = boards.map(::BoardIndex)

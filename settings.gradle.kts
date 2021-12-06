@@ -4,3 +4,5 @@ plugins {
 }
 
 rootProject.name = "aoc-2021"
+
+include(":engine")

@@ -3,7 +3,7 @@
 ## Structure
 
 Each day comes with two parts for you to solve. You'll find a ready-to go and test templates to start coding straight
-away here. All exercises live in [./src/commonTest/kotlin](./src/commonTest/kotlin) directory and come with prepopulated
+away here. All exercises live in [./tasks](./tasks) directory and come with prepopulated
 structure and test cases.
 
 ## Solving
@@ -19,8 +19,8 @@ Test outputs come with uniform formatting and some useful info. It's also quite 
 implementation performs under different runtimes by their execution time printed in the output.
 
 ```text
-SUCCESS [Day2:PartOne #0] 0s 5ms 5912us
-FAILURE [Day2:PartOne #1] Answer [****] is incorrect
+SUCCESS [Day2:PartOne #0] 0s 5ms 5912us - Answer [****] is correct
+FAILURE [Day2:PartOne #1] 0s 5ms 5912us - Answer [****] is incorrect
 ```
 
 ## Branching

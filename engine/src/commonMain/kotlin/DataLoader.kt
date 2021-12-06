@@ -17,7 +17,9 @@ internal class DataLoader(private val root: File) {
   
   fun loadInput(day: Int, id: Int): List<String> {
     val inputFile = find(day, id, "in")
-    return inputFile.readText().split(inputFile.newline).takeIf { it.any(String::isNotBlank) }
+    return inputFile.readText().split(inputFile.newline).let {
+      if (it.lastOrNull()?.isBlank() == true) it.dropLast(1) else it
+    }.takeIf { it.any(String::isNotBlank) }
       ?: error("InputFile [day=$day, id=$id, path=${inputFile.getPath()}] is blank")
   }
   

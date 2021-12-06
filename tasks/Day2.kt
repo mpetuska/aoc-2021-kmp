@@ -4,7 +4,7 @@ import dev.petuska.aoc.engine.Day
 /** [The Task](https://adventofcode.com/2021/day/2) */
 object Day2 : Day(2) {
   override fun partOne(inputLines: List<String>): Int {
-    val commands = inputLines.filter(String::isNotBlank).map { it.split(" ") }.map { it[0] to it[1].toInt() }
+    val commands = inputLines.map { it.split(" ") }.map { it[0] to it[1].toInt() }
     
     return commands
         .fold(0 to 0) { (x, y), (direction, steps) ->
@@ -19,7 +19,7 @@ object Day2 : Day(2) {
   }
 
   override fun partTwo(inputLines: List<String>): Int {
-    val commands = inputLines.filter(String::isNotBlank).map { it.split(" ") }.map { it[0] to it[1].toInt() }
+    val commands = inputLines.map { it.split(" ") }.map { it[0] to it[1].toInt() }
     
     return commands
         .fold(Triple(0, 0, 0)) { (x, y, z), (direction, steps) ->
